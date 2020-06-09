@@ -355,7 +355,27 @@ public class SimpleCalculator {
 		JButton button = new JButton(".");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textFieldsScreen.setText(textFieldsScreen.getText()+".");
+				if(textFieldsScreen.getText().contains(".")) {
+					textFieldsScreen.setText(textFieldsScreen.getText());
+				}
+				else {
+					textFieldsScreen.setText(textFieldsScreen.getText()+".");
+				}
+				if(textFieldsScreen.getText().startsWith(".")) {
+					textFieldsScreen.setText("0"+textFieldsScreen.getText());
+					
+				}
+				else if(textFieldsScreen.getText().endsWith("..")) {
+					 		int length = textFieldsScreen.getText().length();
+							int number = textFieldsScreen.getText().length()-1;
+							String store;
+							if(length>0) {
+								StringBuilder back = new StringBuilder(textFieldsScreen.getText());
+								back.deleteCharAt(number);
+								store = back.toString();
+								textFieldsScreen.setText(store);
+						}
+				}
 			}
 		});
 		button.setFont(new Font("Tahoma", Font.PLAIN, 30));
