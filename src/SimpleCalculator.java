@@ -286,7 +286,7 @@ public class SimpleCalculator {
 						textFieldsScreen.setText("");
 						operator="-";	
 				}catch(Exception e1){
-					JOptionPane.showMessageDialog(null, "Gecerli Bir Sayi Giriniz...");
+					textFieldsScreen.setText("-");
 				}
 			}
 		});
